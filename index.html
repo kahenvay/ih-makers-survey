@@ -108,22 +108,17 @@
 	header {
 		background-image: url('background-image.webp');
 		background-size: cover;
-		background-position: center;
+		background-position: 50% 0;
 	  	border-bottom: 4px solid var(--color-dark-blue);
 	}
 
 	header .content{
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-		height: 600px;
-
+		justify-content: flex-end;
+		
 	}
-
-	.header__top{
-		text-align: right;
-	}
-
+	
 	
 
 	.header__deadline::before{
@@ -368,44 +363,63 @@
   strong {
 	color: #333;
   }
+
+  @media (min-width: 769px) {
+		header img{
+			position: absolute;
+			top: 25px;
+			right: 25px;
+		}
+
+		header .content{
+			height: 200px;
+			position: relative;
+		}
+	}
+
+	
   
   @media (max-width: 768px) {
 
-	.content{
-		width: auto;
+	header .content{
+		align-items: center;
 	}
 
-	.main__middle {
-	  flex-direction: column;
-	}
+		.content{
+			width: auto;
+		}
 
-	.cards{
-		grid-template-columns: repeat(1, 1fr);
-	}
+		.main__middle {
+		flex-direction: column;
+		}
 
-	
-	header, footer {
-	  padding: 20px;
-	  flex-direction: column;
-	  text-align: center;
-	}
-	
-	.socials {
-	  margin: 20px 0 0 0;
-	}
-	 
-	h1 {
-	  font-size: 24px;
-	}
-	
-	h2 {
-	  font-size: 20px;
-	}
-	
-	.main__middle a {
-	  width: 100%;
-	  box-sizing: border-box;
-	}
+		.cards{
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		
+		header, footer {
+		padding: 20px;
+		flex-direction: column;
+		text-align: center;
+		}
+		
+		.socials {
+		margin: 20px 0 0 0;
+		}
+		
+		h1 {
+		font-size: 24px;
+		}
+		
+		h2 {
+		font-size: 20px;
+		}
+		
+		.main__middle a {
+		width: 100%;
+		box-sizing: border-box;
+		}
   }
 	   
   </style>
@@ -417,13 +431,12 @@
 <body>
 	<header>
 		<div class="content">
-			<div class="header__top">
+
 				<img src="logo-impact-hub-alt.svg" width="100" />
-			</div>
-			<div class="header__bottom">
+			
 				<p class="header__deadline">DEADLINE 3 APRIL</p>
 				<p class="header__description">Complete for a chance to win Makers Festival and Global Gathering tickets</p>
-			</div>
+
 		</div>
 	</header>
 	<main>
