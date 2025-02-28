@@ -13,6 +13,14 @@
 />
 
 <style>
+
+	:root {
+		--color-orange: #F78A3C;
+		--color-green: #7EBB55;
+		--color-blue: #41BED0;
+		--color-dark-blue: #1C395C;
+	}
+
 	body{
 	  font-family:"Poppins";
 	}
@@ -85,6 +93,8 @@
 	  url('./fonts/poppins-v20-latin/poppins-v20-latin-700italic.eot'), /* IE9 Compat Modes */
 	  url('./fonts/poppins-v20-latin/poppins-v20-latin-700italic.eot?#iefix') format('embedded-opentype'); /* IE6-IE8 */
 	}
+
+	
   
 	header, footer{
 	  background-color: #333;
@@ -92,20 +102,46 @@
 	  color: #fff;
 	  font-weight: bold;
 	  font-size: 24px;
-	  display: flex;
-	  align-items: center;
+	  
 	}
   
 	header {
-	  border-bottom: 4px solid #B1C976;
+		background-image: url('background-image.webp');
+		background-size: cover;
+		background-position: center;
+	  	border-bottom: 4px solid var(--color-dark-blue);
 	}
-  
-	header p{
-  
-	  margin-left: 10px;
-	  line-height: 0px;
-	  
+
+	header .content{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 600px;
+
 	}
+
+	.header__top{
+		text-align: right;
+	}
+
+	
+
+	.header__deadline::before{
+		content: '';
+		display: inline-block;
+		align-items: center;
+		margin-right: 10px;
+		width: 30px;
+		height: 3px;
+		background-color: #fff;
+		transform: translateY(-7px);
+	}
+
+	.header__description{
+		font-weight: normal;
+		margin-top: 0px;
+	}
+
   
 	body{
 	  padding: 0;
@@ -118,7 +154,8 @@
 	}
   
 	.content{
-	  max-width: 960px;
+	  max-width: 1200px;
+	  width: 100%;
 	  margin: 0 auto;
 	  padding: 0 20px;
 	}
@@ -127,13 +164,13 @@
 	  margin-top: 50px;
 	}
   
-	.middle{
+	.main__middle{
 	  display: flex;
 	  gap: 30px;
 	  margin-top: 50px;
 	}
   
-	.middle a{
+	.main__middle a{
 	  display: inline-block;
 	text-decoration: none;
 	color: #fff;
@@ -147,8 +184,22 @@
 	font-size: 14px;
 	text-align: center;
 	}
+
+	.card{
+		font-size: 15px;
+		background-color: #fcfcfc;
+		padding: 25px;
+	}
+
+	.cards{
+		display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+		
+	}
   
-	.left,.right{
+	/* .main__left,.main__right{
 	  width: 50%;
 	  display: flex;
 	  flex-direction: column;
@@ -156,36 +207,72 @@
   
 	  padding: 25px;
   
-	}
+	} */
   
-	.left{
-	  border-left: 4px solid #B1C976;
+	.card:nth-of-type(4n+1) {
+    	border-left: 4px solid var(--color-orange);
 	}
-  
-	.right {
-	  border-left: 4px solid #3A9B89;
+
+	.card:nth-of-type(4n+1) a{
+    	
+		background-color: var(--color-orange);
+	  	margin-top: auto;
 	}
-  
-	.left a{
-	  background-color: #B1C976;
-	  margin-top: auto;
-	}
-  
-	.left a:hover{
+
+	.card:nth-of-type(4n+1) a:hover{
 	  background-color: #fff;
-	  color:#B1C976;
-	  border-color: #B1C976;
+	  color:var(--color-orange);
+	  border-color: var(--color-orange);
 	}
-  
-	.right a{
-	  background-color: #3A9B89;
+
+	.card:nth-of-type(4n+2) {
+		border-left: 4px solid var(--color-green);
 	}
-  
-	.right a:hover{
+
+	.card:nth-of-type(4n+2) a{
+		
+		background-color: var(--color-green);
+	  	margin-top: auto;
+	}
+
+	.card:nth-of-type(4n+2) a:hover{
 	  background-color: #fff;
-	  color:#3A9B89;
-	  border-color: #3A9B89;
+	  color:var(--color-green);
+	  border-color: var(--color-green);
 	}
+
+	.card:nth-of-type(4n+3) {
+		border-left: 4px solid var(--color-blue);
+	}
+
+	.card:nth-of-type(4n+3) a{
+		
+		background-color: var(--color-blue);
+	  	margin-top: auto;
+	}
+
+	.card:nth-of-type(4n+3) a:hover{
+	  background-color: #fff;
+	  color:var(--color-blue);
+	  border-color: var(--color-blue);
+	}
+
+	.card:nth-of-type(4n) {
+		border-left: 4px solid var(--color-dark-blue);
+	}
+
+	.card:nth-of-type(4n) a{
+		
+		background-color: var(--color-dark-blue);
+	  	margin-top: auto;
+	}	
+
+	.card:nth-of-type(4n) a:hover{
+	  background-color: #fff;
+	  color:var(--color-dark-blue);
+	  border-color: var(--color-dark-blue);
+	}
+
   
 	.socials{
 	  display: flex;
@@ -208,15 +295,21 @@
   
 	footer{
 	  margin-top: 50px;
-	  border-top: 4px solid #3A9B89;
-	  justify-content: space-between;
+	  border-top: 4px solid #812926;
+	 
+	}
+
+	footer .content{
+		display: flex;
+	  align-items: center;
+	  justify-content: baseline;
 	}
   
-	.bottom{
+	.main__bottom{
 	  margin-top: 50px;
 	}
   
-	.bottom a{
+	.main__bottom a{
 	  color: #3A9B89;
 	text-decoration: none;
 	font-weight: 600;
@@ -224,7 +317,7 @@
 	border-bottom: 1px dotted #3A9B89;
 	}
   
-	.bottom a:hover {
+	.main__bottom a:hover {
 	color: #B1C976;
 	border-bottom-color: #B1C976;
   }
@@ -257,7 +350,7 @@
 	color: #333;
 	margin-top: 0;
 	margin-bottom: 25px;
-	border-bottom: 3px solid #B1C976;
+	border-bottom: 3px solid var(--color-blue);
 	padding-bottom: 10px;
 	display: inline-block;
   }
@@ -266,29 +359,30 @@
 	font-size: 24px;
 	color: #333;
 	margin-top: 0;
-	border-bottom: 3px solid #3A9B89;
 	padding-bottom: 10px;
 	display: inline-block;
   }
   
-  .left p, .right p {
-	font-size: 15px;
-  }
+  
   
   strong {
 	color: #333;
   }
   
   @media (max-width: 768px) {
-	.middle {
+
+	.content{
+		width: auto;
+	}
+
+	.main__middle {
 	  flex-direction: column;
 	}
-	
-	.left, .right {
-	  width: calc(100% - 20px);
-	  margin-bottom: 20px;
-	  margin-left: -20px;
+
+	.cards{
+		grid-template-columns: repeat(1, 1fr);
 	}
+
 	
 	header, footer {
 	  padding: 20px;
@@ -308,7 +402,7 @@
 	  font-size: 20px;
 	}
 	
-	.middle a {
+	.main__middle a {
 	  width: 100%;
 	  box-sizing: border-box;
 	}
@@ -322,66 +416,113 @@
 
 <body>
 	<header>
-		<img src="logo-impact-hub.svg" width="100" /><p>Maker Survey</p>
+		<div class="content">
+			<div class="header__top">
+				<img src="logo-impact-hub-alt.svg" width="100" />
+			</div>
+			<div class="header__bottom">
+				<p class="header__deadline">DEADLINE 3 APRIL</p>
+				<p class="header__description">Complete for a chance to win Makers Festival and Global Gathering tickets</p>
+			</div>
+		</div>
 	</header>
 	<main>
 		<div class="content">
-			<div class="top">
-				<h1>WELCOME TO THE GLOBAL MAKER SURVEY</h1>
-				<p>Thank you for being an Impact Hub Maker and for taking part in our survey!</p>
-				<p>Whether you <strong>work for one of our 100+ Impact Hubs every day, are a (co-) founder of the Impact Hub</strong> in your city, or volunteer in our programs and/or community events: your feedback is important to us. We know your time is valuable and really appreciate your participation.</p>
+			<div class="main__top">
+				<h1>Welcome to the Impact Hub Data Collection 2025</h1>
+				<p>This year, we’ve reimagined our data collection process to make it more streamlined, valuable, and less repetitive for everyone in the Network. Instead of multiple surveys throughout the year, we’re consolidating our efforts into a single, comprehensive data collection process. This allows us to better track progress over time, uncover insights that drive growth, and showcase our collective impact more effectively.</p>
+				<p>Your participation is essential. Whether you’re a team member, Association Representative (AREP), program manager, or finance lead, there’s a survey (or form) designed to capture key aspects of your Impact Hub’s contributions.</p>
+				<p>Here’s what we’re collecting:</p>
 			</div>
-			<div class="middle">
-				<div class="left">
-					<h3>Association Representatives should only complete the AREP survey.</h3>
-					<p>If you are the <strong>Association Representative</strong> of your Impact Hub, this survey serves as an annual impact and performance report. This year, it also includes creating your Impact Hub profile on Good Market.</p>
-					<p>The Association Representative holds voting rights at Impact Hub Association General Assemblies, and each Impact Hub has only <strong>one</strong> designated representative.</p>
-					<p>You can pause the survey at any time—simply click <strong>Save & Continue Later</strong> in the top right corner, and you will receive a link via email to resume where you left off.</p>
-					<a href="https://survey.zohopublic.com/zs/QXB6Y4">TAKE ME TO THE AREP SURVEY</a>
+			<div class="main__middle cards">
+				<div class="card">
+					<h3>Makers Satisfaction Survey</h3>
+					<p>For <strong>all Impact Hub team members, global team members, and volunteers</strong></p>
+					<p>Your experience matters! This survey explores your role, your Impact Hub, and your connection to the Network. It takes approximately 15 minutes to complete. If you need to pause, simply click <strong>Save & Continue Later</strong> in the top right corner—you’ll receive a link via email to resume.</p>
+					<a href="https://survey.zohopublic.com/zs/q4B6E1">Take the Maker Survey</a>
 				</div>
-				<div class="right">
-					<h3>WELCOME TO THE GLOBAL MAKER SURVEY</h3>
-					<p>Thank you for being an Impact Hub Maker and for taking part in our survey!</p>
-					<p>Whether you’re <strong> a team member at one of our 100+ Impact Hubs, a (co-)founder, or a volunteer</strong> supporting programmes and community events, your feedback matters. We know your time is valuable and truly appreciate your participation.</p>
-					<p>The Maker Survey explores your role, your Impact Hub, and your experience in the Network. It takes approximately 15 minutes to complete. If you need to pause, simply click Save & Continue Later in the top right corner—you’ll receive a link via email to pick up where you left off.</p>
-					<a href="https://survey.zohopublic.com/zs/q4B6E1">TAKE ME TO THE GLOBAL MAKER SURVEY</a>
+				<div class="card">
+					<h3>AREP Survey</h3>
+					<p><strong>Association Representatives should only complete the AREP survey.</strong></p>
+					<p>If you are the <strong>AREP</strong> of your Impact Hub, this serves as your <strong>annual impact and performance report</strong>. It includes key insights on your Hub’s operations, community, and growth.</p>
+					<p><em>Each Impact Hub has only one designated Association Representative who holds voting rights at Impact Hub Association General Assemblies.</em></p>
+					<a href="https://survey.zohopublic.com/zs/QXB6Y4">Take the Arep Survey</a>
+				</div>
+				<div class="card">
+					<h3>Impact Hub Enterprise Data</h3>
+					<p>For<strong>AREPs or Deputies – Collected via Good Market</strong></p>
+					<p>This is <strong>not a survey</strong>, but rather a structured way to build out your <strong>Impact Hub profile on Good Market.</strong></p>
+					<p>By sharing data on impact, environment, and diversity metrics, your Impact Hub can:</p>
+					<ul>
+						<li>Track progress over time</li>
+						<li>Connect with new opportunities</li>
+						<li>Strengthen its position within the ecosystem</li>
+					</ul>
+					<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landingata">Add your enterprise data</a>
+				</div>
+				<div class="card">
+					<h3>Impact Hub Business Data</h3>
+					<p>For<strong>AREPs, Deputies, or Finance Leads</strong></p>
+					<p>This survey gathers key <strong>financial data</strong> on your Impact Hub, including:</p>
+					<ul>
+						<li>Revenue and investment</li>
+						<li>Business growth and future plans</li>
+						<li>Expenditure for 2024</li>
+					</ul>
+					<p>This information helps us track financial trends across the Network, ensuring sustainability and identifying opportunities for growth.</p>
+					<a href="https://survey.zohopublic.com/zs/DgB6Iu">Add your business data</a>
+				</div>
+				<div class="card">
+					<h3>Programs Survey</h3>
+					<p>For<strong>Program Managers</strong></p>
+					<p>After completing either the <strong>Makers Satisfaction Survey</strong> or the <strong>AREP Survey</strong> (depending on your role), <strong>Program Managers</strong> should also complete the <strong>Programs Survey</strong>.</p>
+					<p>This survey collects data on the <strong>programs implemented in 2024</strong>, feeding into major Network reports such as:</p>
+					<ul>
+						<li>The Impact Report</li>
+						<li>State of the Network/Regions</li>
+						<li>State of Programs across Impact Hubs</li>
+					</ul>
+					<p>Your input ensures we accurately capture the incredible work happening across the Network.</p>
+					<a href="https://survey.zohopublic.com/zs/glC4ji">Add your programs</a>
+				</div>
+				<div class="card">
+					<h3>100 Million Impact Makers</h3>
+					<p>For<strong>Community & Communications Teams</strong></p>
+					<p>We are on a mission to reach <strong>100 million Impact Makers by 2030</strong>! This form is primarily for the <strong>Community and Communications team</strong> at each Impact Hub to complete</p>
+					<p>By submitting your numbers, your Impact Hub can:</p>
+					<ul>
+						<li>Benchmark against peers</li>
+						<li>Learn from successes across the Network</li>
+						<li>Unlock valuable insights into policy, entrepreneurship, and global impact</li>
+					</ul>
+					<p>Together, we’re building a compelling narrative about the power of our Network. <strong>Be counted among the changemakers shaping the future!</strong></p>
+					<a href="https://100m.impacthub.net">Add your Community Data</a>
 				</div>
 				
 			</div>
-			<div class="bottom">
-				<h2>RESULTS</h2>
-				<p>The results:</p>
-				
-				<ul>
-					<li>Measure our Network’s collective impact</li>
-					<li>Provide key insights to shape the Network’s next strategy</li>
-					<li>Map activities and areas of expertise to tailor learning opportunities for you and your Impact Hub</li>
-				</ul>
-			
-				<p>If you have any questions, feel free to reach out to <a href="mailto:research@impacthub.net">research@impacthub.net</a> or share your comments at the end of the survey.</p>
-
-				<p><strong>Thank you for your time and your support,</strong></p>
-
-				<p>Impact Hub Network</p>
+			<div class="main__bottom">
+				<p><strong>Thank you for your time and contribution. Let’s turn data into action! 🚀</strong></p>
 			</div>
 		</div>
 	</main>
 	<footer>
-		<img src="logo-impact-hub.svg" width="100" />
-		<div class="socials">
-			
-			<a href="https://www.facebook.com/ImpactHubNetwork/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="3743 9450 40 40"><path d="M20,0A20,20,0,1,0,40,20,20,20,0,0,0,20,0Zm5.173,20H21.891V32h-4.5V20h-3V15.863h3l-.008-2.434C17.385,10.058,18.3,8,22.27,8h3.306v4.137H23.5c-1.546,0-1.62.576-1.62,1.653l-.008,2.072h3.717Z" transform="translate(3743 9450)"></path></svg></a>
-			<a href="https://www.linkedin.com/connect-services/ads_experience/?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F122770%2Fadmin%2Fdashboard" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="3923 9450 40 40"><path d="M20,0A20,20,0,1,0,40,20,19.992,19.992,0,0,0,20,0ZM14.724,29.84H9.947V15.472h4.777ZM12.335,13.512h0a2.5,2.5,0,1,1,.036-4.991,2.485,2.485,0,0,1,2.674,2.5A2.516,2.516,0,0,1,12.335,13.512ZM31.943,29.84H27.166V22.175c0-1.925-.677-3.244-2.424-3.244a2.643,2.643,0,0,0-2.46,1.747,3.051,3.051,0,0,0-.143,1.176v8.021H17.362s.071-13.012,0-14.367h4.777V17.54a4.812,4.812,0,0,1,4.314-2.389c3.137,0,5.49,2.068,5.49,6.453Z" transform="translate(3923 9450)"></path></svg></a>
-			<!-- <a href="https://twitter.com/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="3863 9450 40 40"><path d="M20,0A20,20,0,1,0,40,20,20,20,0,0,0,20,0Zm9.951,15.51.016.641A14.007,14.007,0,0,1,8.4,27.952a11.144,11.144,0,0,0,1.176.074A9.909,9.909,0,0,0,15.7,25.921,4.926,4.926,0,0,1,11.1,22.5a4.945,4.945,0,0,0,.929.082,4.812,4.812,0,0,0,1.3-.173,4.924,4.924,0,0,1-3.947-4.827v-.066a4.884,4.884,0,0,0,2.229.617,4.929,4.929,0,0,1-1.521-6.571,13.993,13.993,0,0,0,10.148,5.148,5.072,5.072,0,0,1-.132-1.118,4.928,4.928,0,0,1,8.52-3.372,10.05,10.05,0,0,0,3.125-1.192,4.955,4.955,0,0,1-2.163,2.722,9.867,9.867,0,0,0,2.829-.773A10.17,10.17,0,0,1,29.951,15.51Z" transform="translate(3863 9450)"></path></svg></a> -->
-			<a href="https://www.instagram.com/impacthubnetwork/" target="_blank"><!--?xml version="1.0" encoding="UTF-8"?-->
-			<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-				<defs></defs>
-				<g id="Page-1" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
-					<g id="instagram" fill-rule="nonzero" fill="">
-						<path d="M74.9997864,-1.03215103e-05 C33.5786658,0.000105947466 0.000214813486,33.5784779 1.02774294e-06,74.9995985 C-7.64208152e-05,94.8908482 7.90162308,113.967434 21.9668136,128.032718 C36.032004,142.098003 55.1085366,149.999831 74.9997864,149.999886 C94.8911114,149.999946 113.967756,142.098169 128.03304,128.032872 C142.098325,113.967575 150.000084,94.8909235 150.000006,74.9995985 C149.999793,33.5783081 116.421077,-0.000134093357 74.9997864,-1.03215103e-05 L74.9997864,-1.03215103e-05 Z M70.0619244,27.1993784 C71.7053158,27.1993784 73.3505681,27.2022307 74.9997864,27.2022307 C81.5967139,27.2022307 88.1314887,27.1479014 94.7284026,27.5146238 C102.383297,27.8881373 109.166995,29.6306117 114.768162,35.2318201 C120.369289,40.8328927 122.111859,47.6163053 122.485264,55.2711588 C122.858641,61.8680863 122.796298,68.4029426 122.796298,74.9997343 C122.796298,81.5966618 122.858777,88.1313823 122.485264,94.7283097 C122.11175,102.383299 120.369289,109.166983 114.768162,114.768056 C109.166995,120.369264 102.383297,122.111875 94.7284026,122.485252 C88.1314887,122.857408 81.5967139,122.796287 74.9997864,122.796287 C68.4028725,122.796287 61.8680841,122.864199 55.2711702,122.485252 C47.6162487,122.111739 40.8325917,120.369264 35.231424,114.768056 C29.6302699,109.166983 27.887714,102.383299 27.5143092,94.7283097 C27.1407957,88.1313823 27.2031385,81.5966618 27.2031385,74.9997343 C27.2031385,68.4029426 27.1406598,61.8680863 27.5143092,55.2711588 C27.8878227,47.6163053 29.6302699,40.8328927 35.231424,35.2318201 C40.8325917,29.6306117 47.6162487,27.8881373 55.2711702,27.5146238 C60.2188522,27.2348282 65.1317363,27.1995142 70.0619244,27.1995142 L70.0619244,27.1993784 Z M66.6383675,35.7377611 C59.5389625,35.739391 51.1289598,36.0094073 46.8075173,37.7210499 C44.6292816,38.5916759 43.0111397,39.6504169 41.3307907,41.3306843 C39.6504554,43.0110876 38.5920947,44.6291481 37.7208032,46.807343 C35.2314104,53.0932356 35.7915312,68.0294291 35.7915312,74.9995985 C35.7915312,81.9700394 35.2313968,96.9066405 37.7208032,103.192397 C38.5921083,105.370592 39.6504554,106.988788 41.3307907,108.669192 C43.0111397,110.349459 44.6292816,111.407385 46.8075173,112.27869 C53.0932605,114.768056 68.0294676,114.207921 74.9997864,114.207921 C81.9701187,114.207921 96.9067469,114.767513 103.192477,112.27869 C105.370699,111.408064 106.988827,110.349459 108.669176,108.669192 C110.349498,106.988788 111.407478,105.370592 112.27877,103.192397 C114.76819,96.9066405 114.208055,81.9700394 114.208055,74.9995985 C114.208055,68.0294291 114.76819,53.0932356 112.27877,46.807343 C111.407464,44.6291481 110.349498,43.0110876 108.669176,41.3306843 C106.988827,39.6504169 105.370699,38.592355 103.192477,37.7210499 C96.9067469,35.2316843 81.9701187,35.7918187 74.9997864,35.7918187 C72.8215643,35.7918187 69.8653748,35.7374895 66.6383675,35.7374895 L66.6383675,35.7377611 Z M100.516259,43.7579788 C103.690214,43.7579788 106.241949,46.3092797 106.241949,49.4831937 C106.241949,52.6572434 103.690214,55.208816 100.516259,55.208816 C97.34225,55.208816 94.7905552,52.6572434 94.7905552,49.4831937 C94.7905552,46.3092797 97.34225,43.7579788 100.516259,43.7579788 Z M74.9997864,50.4791844 C88.5670462,50.4791844 99.5203363,61.4325016 99.5203363,74.9995985 C99.5203363,88.5669669 88.5670462,99.5202842 74.9997864,99.5202842 C61.4325402,99.5202842 50.4792365,88.5669669 50.4792365,74.9995985 C50.4792365,61.4325016 61.4325402,50.4791844 74.9997864,50.4791844 Z M74.9997864,59.06755 C66.2246368,59.06755 59.0675885,66.2246119 59.0675885,74.9995985 C59.0675885,83.7748567 66.2246368,90.9319186 74.9997864,90.9319186 C83.7749495,90.9319186 90.9319978,83.7748567 90.9319978,74.9995985 C90.9319978,66.2246119 83.7749495,59.06755 74.9997864,59.06755 Z" id="path3808"></path>
+		<div class="content">
+			<img src="logo-impact-hub.svg" width="100" />
+			<div class="socials">
+				
+				<a href="https://www.facebook.com/ImpactHubNetwork/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="3743 9450 40 40"><path d="M20,0A20,20,0,1,0,40,20,20,20,0,0,0,20,0Zm5.173,20H21.891V32h-4.5V20h-3V15.863h3l-.008-2.434C17.385,10.058,18.3,8,22.27,8h3.306v4.137H23.5c-1.546,0-1.62.576-1.62,1.653l-.008,2.072h3.717Z" transform="translate(3743 9450)"></path></svg></a>
+				<a href="https://www.linkedin.com/connect-services/ads_experience/?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F122770%2Fadmin%2Fdashboard" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="3923 9450 40 40"><path d="M20,0A20,20,0,1,0,40,20,19.992,19.992,0,0,0,20,0ZM14.724,29.84H9.947V15.472h4.777ZM12.335,13.512h0a2.5,2.5,0,1,1,.036-4.991,2.485,2.485,0,0,1,2.674,2.5A2.516,2.516,0,0,1,12.335,13.512ZM31.943,29.84H27.166V22.175c0-1.925-.677-3.244-2.424-3.244a2.643,2.643,0,0,0-2.46,1.747,3.051,3.051,0,0,0-.143,1.176v8.021H17.362s.071-13.012,0-14.367h4.777V17.54a4.812,4.812,0,0,1,4.314-2.389c3.137,0,5.49,2.068,5.49,6.453Z" transform="translate(3923 9450)"></path></svg></a>
+				<!-- <a href="https://twitter.com/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="3863 9450 40 40"><path d="M20,0A20,20,0,1,0,40,20,20,20,0,0,0,20,0Zm9.951,15.51.016.641A14.007,14.007,0,0,1,8.4,27.952a11.144,11.144,0,0,0,1.176.074A9.909,9.909,0,0,0,15.7,25.921,4.926,4.926,0,0,1,11.1,22.5a4.945,4.945,0,0,0,.929.082,4.812,4.812,0,0,0,1.3-.173,4.924,4.924,0,0,1-3.947-4.827v-.066a4.884,4.884,0,0,0,2.229.617,4.929,4.929,0,0,1-1.521-6.571,13.993,13.993,0,0,0,10.148,5.148,5.072,5.072,0,0,1-.132-1.118,4.928,4.928,0,0,1,8.52-3.372,10.05,10.05,0,0,0,3.125-1.192,4.955,4.955,0,0,1-2.163,2.722,9.867,9.867,0,0,0,2.829-.773A10.17,10.17,0,0,1,29.951,15.51Z" transform="translate(3863 9450)"></path></svg></a> -->
+				<a href="https://www.instagram.com/impacthubnetwork/" target="_blank"><!--?xml version="1.0" encoding="UTF-8"?-->
+				<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<defs></defs>
+					<g id="Page-1" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
+						<g id="instagram" fill-rule="nonzero" fill="">
+							<path d="M74.9997864,-1.03215103e-05 C33.5786658,0.000105947466 0.000214813486,33.5784779 1.02774294e-06,74.9995985 C-7.64208152e-05,94.8908482 7.90162308,113.967434 21.9668136,128.032718 C36.032004,142.098003 55.1085366,149.999831 74.9997864,149.999886 C94.8911114,149.999946 113.967756,142.098169 128.03304,128.032872 C142.098325,113.967575 150.000084,94.8909235 150.000006,74.9995985 C149.999793,33.5783081 116.421077,-0.000134093357 74.9997864,-1.03215103e-05 L74.9997864,-1.03215103e-05 Z M70.0619244,27.1993784 C71.7053158,27.1993784 73.3505681,27.2022307 74.9997864,27.2022307 C81.5967139,27.2022307 88.1314887,27.1479014 94.7284026,27.5146238 C102.383297,27.8881373 109.166995,29.6306117 114.768162,35.2318201 C120.369289,40.8328927 122.111859,47.6163053 122.485264,55.2711588 C122.858641,61.8680863 122.796298,68.4029426 122.796298,74.9997343 C122.796298,81.5966618 122.858777,88.1313823 122.485264,94.7283097 C122.11175,102.383299 120.369289,109.166983 114.768162,114.768056 C109.166995,120.369264 102.383297,122.111875 94.7284026,122.485252 C88.1314887,122.857408 81.5967139,122.796287 74.9997864,122.796287 C68.4028725,122.796287 61.8680841,122.864199 55.2711702,122.485252 C47.6162487,122.111739 40.8325917,120.369264 35.231424,114.768056 C29.6302699,109.166983 27.887714,102.383299 27.5143092,94.7283097 C27.1407957,88.1313823 27.2031385,81.5966618 27.2031385,74.9997343 C27.2031385,68.4029426 27.1406598,61.8680863 27.5143092,55.2711588 C27.8878227,47.6163053 29.6302699,40.8328927 35.231424,35.2318201 C40.8325917,29.6306117 47.6162487,27.8881373 55.2711702,27.5146238 C60.2188522,27.2348282 65.1317363,27.1995142 70.0619244,27.1995142 L70.0619244,27.1993784 Z M66.6383675,35.7377611 C59.5389625,35.739391 51.1289598,36.0094073 46.8075173,37.7210499 C44.6292816,38.5916759 43.0111397,39.6504169 41.3307907,41.3306843 C39.6504554,43.0110876 38.5920947,44.6291481 37.7208032,46.807343 C35.2314104,53.0932356 35.7915312,68.0294291 35.7915312,74.9995985 C35.7915312,81.9700394 35.2313968,96.9066405 37.7208032,103.192397 C38.5921083,105.370592 39.6504554,106.988788 41.3307907,108.669192 C43.0111397,110.349459 44.6292816,111.407385 46.8075173,112.27869 C53.0932605,114.768056 68.0294676,114.207921 74.9997864,114.207921 C81.9701187,114.207921 96.9067469,114.767513 103.192477,112.27869 C105.370699,111.408064 106.988827,110.349459 108.669176,108.669192 C110.349498,106.988788 111.407478,105.370592 112.27877,103.192397 C114.76819,96.9066405 114.208055,81.9700394 114.208055,74.9995985 C114.208055,68.0294291 114.76819,53.0932356 112.27877,46.807343 C111.407464,44.6291481 110.349498,43.0110876 108.669176,41.3306843 C106.988827,39.6504169 105.370699,38.592355 103.192477,37.7210499 C96.9067469,35.2316843 81.9701187,35.7918187 74.9997864,35.7918187 C72.8215643,35.7918187 69.8653748,35.7374895 66.6383675,35.7374895 L66.6383675,35.7377611 Z M100.516259,43.7579788 C103.690214,43.7579788 106.241949,46.3092797 106.241949,49.4831937 C106.241949,52.6572434 103.690214,55.208816 100.516259,55.208816 C97.34225,55.208816 94.7905552,52.6572434 94.7905552,49.4831937 C94.7905552,46.3092797 97.34225,43.7579788 100.516259,43.7579788 Z M74.9997864,50.4791844 C88.5670462,50.4791844 99.5203363,61.4325016 99.5203363,74.9995985 C99.5203363,88.5669669 88.5670462,99.5202842 74.9997864,99.5202842 C61.4325402,99.5202842 50.4792365,88.5669669 50.4792365,74.9995985 C50.4792365,61.4325016 61.4325402,50.4791844 74.9997864,50.4791844 Z M74.9997864,59.06755 C66.2246368,59.06755 59.0675885,66.2246119 59.0675885,74.9995985 C59.0675885,83.7748567 66.2246368,90.9319186 74.9997864,90.9319186 C83.7749495,90.9319186 90.9319978,83.7748567 90.9319978,74.9995985 C90.9319978,66.2246119 83.7749495,59.06755 74.9997864,59.06755 Z" id="path3808"></path>
+						</g>
 					</g>
-				</g>
-			</svg></a>
+				</svg></a>
+			</div>
 		</div>
 	</footer>
 </body>
