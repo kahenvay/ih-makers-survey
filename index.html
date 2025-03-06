@@ -377,6 +377,55 @@
 		}
 	}
 
+	.language-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0 20px 0;
+}
+
+.lang-link {
+    color: var(--color-dark-blue);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 3px 5px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.lang-link:hover {
+    background-color: var(--color-dark-blue);
+    color: white;
+}
+
+.lang-flag {
+    font-size: 16px;
+}
+
+.lang-separator {
+    color: #ccc;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .language-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .lang-separator {
+        display: none;
+    }
+    
+    .lang-link {
+        display: block;
+        width: 100%;
+        padding: 8px 10px;
+    }
+}
+
+
 	
   
   @media (max-width: 768px) {
@@ -479,7 +528,42 @@
 						<li>Connect with new opportunities</li>
 						<li>Strengthen its position within the ecosystem</li>
 					</ul>
-					<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing">Add your enterprise data</a>
+					<div class="enterprise-cta">
+						<p><strong>Take the enterprise survey in:</strong></p>
+						<div class="language-links">
+							<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing" class="lang-link">
+								English
+							</a>
+							<span class="lang-separator">•</span>
+							<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing?lang=cs" class="lang-link">
+								Čeština
+							</a>
+							<span class="lang-separator">•</span>
+							<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing?lang=de" class="lang-link">
+								Deutsch
+							</a>
+							<span class="lang-separator">•</span>
+							<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing?lang=es" class="lang-link">
+								Español
+							</a>
+							<span class="lang-separator">•</span>
+							<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing?lang=fr" class="lang-link">
+								Français
+							</a>
+							<span class="lang-separator">•</span>
+							<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing?lang=it" class="lang-link">
+								Italiano
+							</a>
+							<span class="lang-separator">•</span>
+							<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing?lang=pt" class="lang-link">
+								Português
+							</a>
+							<span class="lang-separator">•</span>
+							<a href="https://www.goodmarket.global/survey/impact-hub-enterprise-survey/landing?lang=zh" class="lang-link">
+								中文
+							</a>
+						</div>
+					</div>
 				</div>
 				<div class="card">
 					<h3>Impact Hub Business Data</h3>
